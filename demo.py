@@ -65,7 +65,7 @@ def test(test_loader, network, result_dir):
             psnr_val = 10 * torch.log10(1 / F.mse_loss(output, target)).item()
 
             _, _, H, W = output.size()
-            down_ratio = max(1, round(min(H, W) / 256))  # Zhou Wang
+            down_ratio = max(1, round(min(H, W) / 256))  
             ssim_val = ssim(F.adaptive_avg_pool2d(output, (int(H / down_ratio), int(W / down_ratio))),
                             F.adaptive_avg_pool2d(target, (int(H / down_ratio), int(W / down_ratio))),
                             data_range=1, size_average=False).item()
@@ -115,7 +115,7 @@ if __name__ == '__main__':
         exit(0)
 
     try:
-        yolo_model = YOLO('D:\\LARNet-SAP-YOLOv11-main\\runs\\SAP-YOLOv11\\train\\weights\\best.pt')
+        yolo_model = YOLO('..Path to object detection weight')
         print("YOLO model loaded successfully")
     except Exception as e:
         print(f"Failed to load YOLO model: {e}")
@@ -132,7 +132,7 @@ if __name__ == '__main__':
     result_dir = os.path.join(args.result_dir, args.dataset, args.model)
     os.makedirs(os.path.join(result_dir, 'imgs'), exist_ok=True)
     torch.cuda.empty_cache()
-    max_size = 1024
+    max_size = 256 # The right size
     for idx, batch in enumerate(test_loader):
         input = batch['source'].cuda()
         filename = batch['filename'][0]
