@@ -1,6 +1,10 @@
 
 
-https://github.com/user-attachments/assets/6077188f-2d50-4cca-8ca2-7a250f7ce0b5
+
+https://github.com/user-attachments/assets/54705e96-5ee7-4a80-87ab-acaab720c9d4
+
+
+
 
 ## LARNet-SAP-YOLOv11
 
