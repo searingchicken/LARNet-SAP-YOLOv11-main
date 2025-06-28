@@ -14,7 +14,7 @@ from utils import AverageMeter, write_img, chw_to_hwc
 from datasets.loader import PairLoader
 from models import *
 
-# Ignore warnings from YOLOv8
+# Ignore warnings from YOLOv11
 warnings.filterwarnings('ignore')
 
 # Parse arguments
